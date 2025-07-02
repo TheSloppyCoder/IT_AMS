@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace IT_AMS;
 
-public partial class MainWindow : Window
+public partial class MainMenu : Window
 {
-    public MainWindow()
+    public MainMenu()
     {
         InitializeComponent();
     }
