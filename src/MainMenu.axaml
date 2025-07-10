@@ -14,6 +14,7 @@
                         <Image Source="../img/glogo.png" Height="70"/>
                         <Border Width="2" VerticalAlignment="Stretch" Background="Gray" Margin="25,0"/>
                         
+                        
                         <Button Name="BtnQuickEntry" FontSize="15"  FontWeight="Bold" Background="LightGray" BorderBrush="Gray" 
                                 Margin="0,0,5,0" Click="BtnQuickEntry_OnClick">
                                 <StackPanel Orientation="Horizontal">
@@ -21,7 +22,6 @@
                                         <Label Content=" Quick Entry"></Label>
                                 </StackPanel>
                         </Button>
-
                         <Button Name="BtnStorage" FontSize="15"  FontWeight="Bold" Background="LightGray" BorderBrush="Gray">
                                 <StackPanel Orientation="Horizontal">
                                         <Image Source="../img/storage.png" Height="25"></Image>
@@ -103,7 +103,6 @@
                                 <DataGridTextColumn Header="Email"/>
                                 <DataGridTextColumn Header=" PC Type"></DataGridTextColumn>
                         </DataGrid.Columns>
-                        
                 </DataGrid>
         </Grid>
 </Window>
