@@ -47,5 +47,7 @@
       <AvaloniaResource Include="img\settings.png" />
       <None Remove="img\storage.png" />
       <AvaloniaResource Include="img\storage.png" />
+      <None Remove="img\search.png" />
+      <AvaloniaResource Include="img\search.png" />
     </ItemGroup>
 </Project>
