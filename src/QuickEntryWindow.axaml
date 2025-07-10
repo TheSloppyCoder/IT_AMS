@@ -1,0 +1,83 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
+        x:Class="IT_AMS.QuickEntryWindow"
+        Title="Quick Entry" Width="1200" Height="650" Background="#EAEFEF" WindowStartupLocation="CenterScreen"
+        Icon="../img/quick1.png">
+        
+        <!-- Main Grid -->
+        <Grid ColumnDefinitions="20, *, 2, *, 20" RowDefinitions="20, 50, 2, *, 100, 20">
+                <!-- Column Separator -->
+                <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Width="2" Background="Gray" Margin="20,0"/>
+                
+                <!-- Employee and Asset Detail Titles -->
+                <Label Grid.Column="1" Grid.Row="1" Content="Employee Details" FontSize="30" FontWeight="Bold" 
+                       HorizontalAlignment="Center"/>
+                <Label Grid.Column="3" Grid.Row="1" Content="Asset Details" FontSize="30" FontWeight="Bold" 
+                       HorizontalAlignment="Center"/>
+                <Separator Grid.Column="1" Grid.Row="2" Height="2" Margin="0,10,0,40"/>
+                <Separator Grid.Column="3" Grid.Row="2" Height="2" Margin="0,10,0,40"/>
+                
+                <!-- Employee Details Section -->
+                <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel>
+                        <Label Content="Full Name" Margin="0,5,0,20"/>
+                        <Label Content="Department" Margin="0,5,0,20" />
+                        <Label Content="Email" Margin="0,5,0,20"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox Name="TxtFullName" Width="300" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtDepartment" Width="300" Margin="50,16,0,0"/>
+                        <TextBox Name="TxtEmail" Width="300" Margin="50,16,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+                
+                
+                <!-- Asset Details Section -->
+                <StackPanel Grid.Column="3" Grid.Row="3" Orientation="Horizontal">
+                    <StackPanel>
+                        <Label Content="Computer Type" Margin="0,5,0,20"/>
+                        <Label Content="Computer Model" Margin="0,5,0,20"/>
+                        <Label Content="Computer Name" Margin="0,5,0,20"/>
+                        <Label Content="CPU" Margin="0,5,0,20"/>
+                        <Label Content="RAM" Margin="0,5,0,20"/>
+                        <Label Content="Serial" Margin="0,5,0,20"/>
+                        <Label Content="Comments"></Label>
+                    </StackPanel>
+                    <StackPanel>
+                        <ComboBox Name="ComboComputerType" Width="300" Margin="50,0,0,0">
+                            <ComboBoxItem Content="Notebook"/>
+                            <ComboBoxItem Content="Desktop"/>
+                            <ComboBoxItem Content="Mini PC"/>
+                        </ComboBox>
+                        <TextBox Name="TxtComputerModel" Width="300" Margin="50,16,0,0"/>
+                        <TextBox Name="TxtComputerName" Width="300" Margin="50,16,0,0"/>
+                        <TextBox Name="TxtCpu" Width="300" Margin="50,15,0,0"/>
+                        <TextBox Name="TxtRam" Width="300" Margin="50,15,0,0"/>
+                        <TextBox Name="TxtSerial" Width="300" Margin="50,15,0,0"/>
+                        <TextBox Name="TxtComments" Width="300" Margin="50,15,0,0"/>
+                    </StackPanel>
+                </StackPanel>
+                
+                
+                <!-- Button Section -->
+                <StackPanel Grid.Column="3" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="BtnCreateUserAndAsset" Margin="0,0,50,0" Click="BtnCreateUserAndAsset_OnClick">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../img/add.png" Height="30"/>
+                            <Label Content=" Create User and Asset" FontSize="20" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="BtnCancel" Click="BtnCancel_OnClick">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../img/delete.png" Height="30"/>
+                            <Label Content=" Cancel" FontSize="20" FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button>
+                    
+                </StackPanel>
+                
+        </Grid>
+</Window>

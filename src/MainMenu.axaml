@@ -1,0 +1,105 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
+        x:Class="IT_AMS.MainMenu"
+        Title="IT Asset Management System" Width="1200" Height="650" Background="#EAEFEF"
+        Icon="../img/app-logo.png" WindowStartupLocation="CenterScreen" Loaded="Window_OnLoaded">
+        
+        <!-- Main Grid -->
+        <Grid ColumnDefinitions="20, *, *, 20" RowDefinitions="20, 80, 55, *, 20">
+                <!-- Top Navigation Bar -->
+                <StackPanel Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+                        <Image Source="../img/glogo.png" Height="70"/>
+                        <Border Width="2" VerticalAlignment="Stretch" Background="Gray" Margin="25,0"/>
+                        
+                        <Button Name="BtnQuickEntry" FontSize="15"  FontWeight="Bold" Background="LightGray" BorderBrush="Gray" 
+                                Margin="0,0,5,0" Click="BtnQuickEntry_OnClick">
+                                <StackPanel Orientation="Horizontal">
+                                        <Image Source="../img/quick1.png" Height="25"></Image>
+                                        <Label Content=" Quick Entry"></Label>
+                                </StackPanel>
+                        </Button>
+
+                        <Button Name="BtnStorage" FontSize="15"  FontWeight="Bold" Background="LightGray" BorderBrush="Gray">
+                                <StackPanel Orientation="Horizontal">
+                                        <Image Source="../img/storage.png" Height="25"></Image>
+                                        <Label Content=" Storage"></Label>
+                                </StackPanel>
+                        </Button>
+                        <ComboBox Name="ComboHistory" FontSize="15" Height="38" FontWeight="Bold" PlaceholderText="Asset History"
+                                  Background="LightGray" VerticalAlignment="Center" Margin="5,0" BorderBrush="Gray"
+                                  SelectionChanged="ComboHistory_OnSelectionChanged">
+                                <ComboBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                                <Image Source="../img/ok.png" Height="20"/>
+                                                <Label Content=" Assigned Assets"/>
+                                        </StackPanel>
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                                <Image Source="../img/history.png" Height="20"/>
+                                                <Label Content=" Asset History"/>
+                                        </StackPanel>
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                                <Image Source="../img/delete.png" Height="20"/>
+                                                <Label Content=" Deleted Assets"/>
+                                        </StackPanel>
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                                <Image Source="../img/recycle.png" Height="20"/>
+                                                <Label Content=" Recycled Assets"/>
+                                        </StackPanel>
+                                </ComboBoxItem>
+                        </ComboBox>
+                        <ComboBox Name="ComboOptions" FontSize="15" Height="38" FontWeight="Bold" PlaceholderText="Options"
+                                  Background="LightGray" VerticalAlignment="Center" Margin="0,0,5,0" BorderBrush="Gray"
+                                  SelectionChanged="ComboOptions_OnSelectionChanged">
+                                <ComboBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                                <Image Source="../img/export.png" Height="25"/>
+                                                <Label Content=" Export -> Excel"></Label>
+                                        </StackPanel>
+                                </ComboBoxItem>
+                                <ComboBoxItem>
+                                        <StackPanel Orientation="Horizontal">
+                                                <Image Source="../img/settings.png" Height="25"/>
+                                                <Label Content=" Settings"></Label>
+                                        </StackPanel>
+                                </ComboBoxItem>
+                        </ComboBox>
+                        <Button Name="BtnAbout" FontSize="15"  FontWeight="Bold" Background="LightGray" BorderBrush="Gray">
+                                <StackPanel Orientation="Horizontal">
+                                        <Image Source="../img/about.png" Height="25"/>
+                                </StackPanel>
+                        </Button>
+                </StackPanel>
+                
+                <!-- Search Text Box -->
+                <TextBox Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" FontSize="15" FontWeight="Bold"
+                         Watermark="Search" Height="38" Width="150" VerticalContentAlignment="Center" 
+                         CornerRadius="10" HorizontalContentAlignment="Left"/>
+                
+                <!-- Data Table Title -->
+                <Label Name="LblTitle" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" 
+                       Content="Assets" Margin="0,20,0,0" FontSize="20" FontWeight="Bold"/>
+                
+                
+               <!-- Data Table -->
+                <DataGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" 
+                          BorderThickness="2" BorderBrush="Gray"
+                          GridLinesVisibility="All" VerticalScrollBarVisibility="Visible" FontWeight="Bold">
+                        <DataGrid.Columns>
+                                <DataGridTextColumn Header="Name"/>
+                                <DataGridTextColumn Header="Last Name"/>
+                                <DataGridTextColumn Header="Email"/>
+                                <DataGridTextColumn Header=" PC Type"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                        
+                </DataGrid>
+        </Grid>
+</Window>

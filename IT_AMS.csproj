@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.3.0"/>
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.0" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.0"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.0"/>
+	<PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.0">
+            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="img\about.png" />
+      <AvaloniaResource Include="img\about.png" />
+      <None Remove="img\add.png" />
+      <AvaloniaResource Include="img\add.png" />
+      <None Remove="img\app-logo.png" />
+      <AvaloniaResource Include="img\app-logo.png" />
+      <None Remove="img\delete.png" />
+      <AvaloniaResource Include="img\delete.png" />
+      <None Remove="img\export.png" />
+      <AvaloniaResource Include="img\export.png" />
+      <None Remove="img\glogo.png" />
+      <AvaloniaResource Include="img\glogo.png" />
+      <None Remove="img\history.png" />
+      <AvaloniaResource Include="img\history.png" />
+      <None Remove="img\ok.png" />
+      <AvaloniaResource Include="img\ok.png" />
+      <None Remove="img\quick1.png" />
+      <AvaloniaResource Include="img\quick1.png" />
+      <None Remove="img\recycle.png" />
+      <AvaloniaResource Include="img\recycle.png" />
+      <None Remove="img\settings.png" />
+      <AvaloniaResource Include="img\settings.png" />
+      <None Remove="img\storage.png" />
+      <AvaloniaResource Include="img\storage.png" />
+    </ItemGroup>
+</Project>
