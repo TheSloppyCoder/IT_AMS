@@ -5,7 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
         x:Class="IT_AMS.QuickEntryWindow"
         Title="Quick Entry" Width="1200" Height="650" Background="#F1F1F1" WindowStartupLocation="CenterScreen"
-        Icon="../img/quick1.png">
+        Icon="../img/quick1.png" CanResize="False">
         
         <!-- Main Grid -->
         <Grid ColumnDefinitions="20, *, 2, *, 20" RowDefinitions="20, 50, 2, *, 100, 20">
