@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
         x:Class="IT_AMS.MainMenu"
-        Title="IT Asset Management System" Width="1200" Height="650" Background="#EAEFEF"
+        Title="IT Asset Management System" Width="1200" Height="650" Background="#F1F1F1"
         Icon="../img/app-logo.png" WindowStartupLocation="CenterScreen" Loaded="Window_OnLoaded">
         
         <!-- Main Grid -->

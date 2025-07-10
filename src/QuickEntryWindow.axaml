@@ -4,7 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
         x:Class="IT_AMS.QuickEntryWindow"
-        Title="Quick Entry" Width="1200" Height="650" Background="#EAEFEF" WindowStartupLocation="CenterScreen"
+        Title="Quick Entry" Width="1200" Height="650" Background="#F1F1F1" WindowStartupLocation="CenterScreen"
         Icon="../img/quick1.png">
         
         <!-- Main Grid -->
