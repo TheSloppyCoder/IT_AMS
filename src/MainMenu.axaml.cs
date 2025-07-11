@@ -1,4 +1,6 @@
 using System;
+using System.Collections.ObjectModel;
+using System.Data;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Microsoft.Data.SqlClient;
@@ -15,19 +17,47 @@ public partial class MainMenu : Window
     
     private void Window_OnLoaded(object? sender, RoutedEventArgs e)
     {
-        // string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester123;TrustServerCertificate=true;";
-        // using (SqlConnection connection = new SqlConnection(connectionString))
-        // {
-        //     try
-        //     {
-        //         connection.Open();
-        //         Console.WriteLine("Connection successful!");
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         Console.WriteLine("Error: " + ex.Message);
-        //     }
-        // }
+        try
+        {
+            string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+            string sql = "SELECT * FROM Employee INNER JOIN Asset ON Employee.AssetID = Asset.AssetID";
+            
+            DataTable dt = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
+                adapter.Fill(dt);
+            }
+
+            ObservableCollection<CombinedDataModel> employees = new ObservableCollection<CombinedDataModel>();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                employees.Add(new  CombinedDataModel()
+                {
+                    FullName = row["FullName"].ToString(),
+                    Department = row["Department"].ToString(),
+                    Email = row["Email"].ToString(),
+                    Computertype = row["Computertype"].ToString(),
+                    ComputerModel = row["ComputerModel"].ToString(),
+                    ComputerName = row["ComputerName"].ToString(),
+                    CPU = row["CPU"].ToString(),
+                    RAM = row["RAM"].ToString(),
+                    Serial = row["Serial"].ToString(),
+                    Comments = row["Comments"].ToString(),
+                    SentinelOne = row["SentinelOne"].ToString(),
+                    DNSFilter = row["DNSFilter"].ToString(),
+                    Mimecast = row["Mimecast"].ToString(),
+                    M365License = row["M365License"].ToString(),
+                    WinKey = row["WinKey"].ToString()
+                });
+            }
+            DataGrid.ItemsSource = employees;
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+        }
 
     }
 

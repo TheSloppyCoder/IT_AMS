@@ -94,15 +94,18 @@
                 
                 
                <!-- Data Table -->
-                <DataGrid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" 
+                <DataGrid x:Name="DataGrid" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" 
                           BorderThickness="2" BorderBrush="Gray"
-                          GridLinesVisibility="All" VerticalScrollBarVisibility="Visible" FontWeight="Bold">
-                        <DataGrid.Columns>
-                                <DataGridTextColumn Header="Name"/>
-                                <DataGridTextColumn Header="Last Name"/>
-                                <DataGridTextColumn Header="Email"/>
-                                <DataGridTextColumn Header=" PC Type"></DataGridTextColumn>
-                        </DataGrid.Columns>
+                          GridLinesVisibility="All" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="True"
+                          IsReadOnly="True">
+                        <DataGrid.Styles>
+                                <Style Selector="DataGridColumnHeader">
+                                        <Setter Property="FontSize" Value="16"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="Background" Value="CadetBlue"/>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                </Style>
+                        </DataGrid.Styles>
                 </DataGrid>
         </Grid>
 </Window>

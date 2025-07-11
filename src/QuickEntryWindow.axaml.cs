@@ -1,7 +1,9 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Microsoft.Data.SqlClient;
 
 namespace IT_AMS;
 
@@ -14,7 +16,64 @@ public partial class QuickEntryWindow : Window
 
     private void BtnCreateUserAndAsset_OnClick(object? sender, RoutedEventArgs e)
     {
+        // Insert Fist the Asset into the Asset Table and get the Inserted Asset ID
         //
+        int LastId = 0; // AssetID
+        
+        string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+        
+        var selectedItem = ComboComputerType.SelectedItem as ComboBoxItem;
+        Console.WriteLine(selectedItem.Content.ToString());
+        Console.WriteLine();
+
+        try
+        {
+            string sql = @"INSERT INTO Asset (ComputerType, ComputerModel, ComputerName, CPU, RAM, Serial, Comments) 
+                        VALUES (@Value1, @Value2,  @Value3, @Value4, @Value5, @Value6, @Value7); 
+                        SELECT CAST(SCOPE_IDENTITY() AS INT);";
+        
+            using SqlConnection con = new  SqlConnection(connectionString);
+            using (SqlCommand cmd = new SqlCommand(sql, con))
+            {
+
+                cmd.Parameters.AddWithValue("@Value1", "PRE TEST");
+                cmd.Parameters.AddWithValue("@Value2", TxtComputerModel.Text);
+                cmd.Parameters.AddWithValue("@Value3", TxtComputerName.Text);
+                cmd.Parameters.AddWithValue("@Value4", TxtCpu.Text);
+                cmd.Parameters.AddWithValue("@Value5", TxtRam.Text);
+                cmd.Parameters.AddWithValue("@Value6", TxtSerial.Text);
+                cmd.Parameters.AddWithValue("@Value7", TxtComments.Text);
+            
+                con.Open();
+                LastId = (int)cmd.ExecuteScalar(); // Get Last Asset ID Inserted into the Asset Table
+                con.Close();
+            }
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine("EXP1" + exception);
+        }
+        
+        Console.WriteLine(LastId.ToString());
+        
+        
+        try
+        {
+            string sql2 = @"INSERT INTO Employee (FullName, Department, Email) 
+                            VALUES (@Value1, @Value2, @Value3);";
+            using SqlConnection con2 = new  SqlConnection(connectionString);
+            using (SqlCommand cmd2 = new SqlCommand(sql2, con2))
+            {
+                cmd2.Parameters.AddWithValue("@Value1", TxtFullName.Text);
+                cmd2.Parameters.AddWithValue("@Value2", TxtDepartment.Text);
+                cmd2.Parameters.AddWithValue("@Value3", TxtEmail.Text);
+                //cmd2.Parameters.AddWithValue("@Value4", LastId);
+            }
+        }
+        catch (Exception exception2)
+        {
+            Console.WriteLine("Exp2" + exception2);
+        }
     }
 
     private void BtnCancel_OnClick(object? sender, RoutedEventArgs e)
