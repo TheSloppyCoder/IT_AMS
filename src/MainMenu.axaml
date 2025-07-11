@@ -96,14 +96,13 @@
                <!-- Data Table -->
                 <DataGrid x:Name="DataGrid" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" 
                           BorderThickness="2" BorderBrush="Gray"
-                          GridLinesVisibility="All" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="True"
-                          IsReadOnly="True">
+                          GridLinesVisibility="All" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="True">
                         <DataGrid.Styles>
                                 <Style Selector="DataGridColumnHeader">
                                         <Setter Property="FontSize" Value="16"/>
                                         <Setter Property="FontWeight" Value="Bold"/>
-                                        <Setter Property="Background" Value="CadetBlue"/>
-                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Background" Value="SlateGray"/>
+                                        <Setter Property="Foreground" Value="LightGray"/>
                                 </Style>
                         </DataGrid.Styles>
                 </DataGrid>
