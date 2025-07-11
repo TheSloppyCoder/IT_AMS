@@ -19,7 +19,7 @@ public partial class MainMenu : Window
     {
         try
         {
-            string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+            string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
             string sql = "SELECT * FROM Employee INNER JOIN Asset ON Employee.AssetID = Asset.AssetID";
             
             DataTable dt = new DataTable();
@@ -33,12 +33,12 @@ public partial class MainMenu : Window
 
             foreach (DataRow row in dt.Rows)
             {
-                employees.Add(new  CombinedDataModel()
+                employees.Add(new  CombinedDataModel
                 {
                     FullName = row["FullName"].ToString(),
                     Department = row["Department"].ToString(),
                     Email = row["Email"].ToString(),
-                    Computertype = row["Computertype"].ToString(),
+                    ComputerType = row["Computertype"].ToString(),
                     ComputerModel = row["ComputerModel"].ToString(),
                     ComputerName = row["ComputerName"].ToString(),
                     CPU = row["CPU"].ToString(),

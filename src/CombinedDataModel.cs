@@ -5,7 +5,7 @@ public class CombinedDataModel
     public string FullName { get; set; }
     public string Department { get; set; }
     public string Email { get; set; }
-    public string Computertype {get; set;}
+    public string ComputerType {get; set;}
     public string ComputerModel {get; set;}
     public string ComputerName {get; set;}
     public string CPU {get; set;}

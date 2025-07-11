@@ -20,11 +20,10 @@ public partial class QuickEntryWindow : Window
         //
         int LastId = 0; // AssetID
         
-        string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+        string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
         
         var selectedItem = ComboComputerType.SelectedItem as ComboBoxItem;
-        Console.WriteLine(selectedItem.Content.ToString());
-        Console.WriteLine();
+        string selectedText = selectedItem.Content.ToString();
 
         try
         {
@@ -36,7 +35,7 @@ public partial class QuickEntryWindow : Window
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
 
-                cmd.Parameters.AddWithValue("@Value1", "PRE TEST");
+                cmd.Parameters.AddWithValue("@Value1", selectedText);
                 cmd.Parameters.AddWithValue("@Value2", TxtComputerModel.Text);
                 cmd.Parameters.AddWithValue("@Value3", TxtComputerName.Text);
                 cmd.Parameters.AddWithValue("@Value4", TxtCpu.Text);
@@ -54,25 +53,27 @@ public partial class QuickEntryWindow : Window
             Console.WriteLine("EXP1" + exception);
         }
         
-        Console.WriteLine(LastId.ToString());
         
-        
+        // Second Command Inserts the User Details (Employee) to the Employee Table and assigns the AssetID.
+
         try
         {
-            string sql2 = @"INSERT INTO Employee (FullName, Department, Email) 
-                            VALUES (@Value1, @Value2, @Value3);";
-            using SqlConnection con2 = new  SqlConnection(connectionString);
-            using (SqlCommand cmd2 = new SqlCommand(sql2, con2))
+            string sql = @"INSERT INTO Employee (FullName, Department, Email, AssetID) 
+                            VALUES (@Valuee1, @Valuee2, @Valuee3, @Valuee4);";
+            using SqlConnection con = new  SqlConnection(connectionString);
+            using (SqlCommand cmd = new SqlCommand(sql, con))
             {
-                cmd2.Parameters.AddWithValue("@Value1", TxtFullName.Text);
-                cmd2.Parameters.AddWithValue("@Value2", TxtDepartment.Text);
-                cmd2.Parameters.AddWithValue("@Value3", TxtEmail.Text);
-                //cmd2.Parameters.AddWithValue("@Value4", LastId);
+                cmd.Parameters.AddWithValue("@Valuee1", TxtFullName.Text);
+                cmd.Parameters.AddWithValue("@Valuee2", TxtDepartment.Text);
+                cmd.Parameters.AddWithValue("@Valuee3", TxtEmail.Text);
+                cmd.Parameters.AddWithValue("@Valuee4", LastId);
+                con.Open();
+                cmd.ExecuteNonQuery();
             }
         }
-        catch (Exception exception2)
+        catch (Exception exception)
         {
-            Console.WriteLine("Exp2" + exception2);
+            Console.WriteLine(exception);
         }
     }
 
