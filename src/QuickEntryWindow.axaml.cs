@@ -4,6 +4,8 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Microsoft.Data.SqlClient;
+using MsBox.Avalonia;
+using MsBox.Avalonia.Enums;
 
 namespace IT_AMS;
 
@@ -20,7 +22,8 @@ public partial class QuickEntryWindow : Window
         //
         int LastId = 0; // AssetID
         
-        string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+        //string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+        string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
         
         var selectedItem = ComboComputerType.SelectedItem as ComboBoxItem;
         string selectedText = selectedItem.Content.ToString();
@@ -48,9 +51,10 @@ public partial class QuickEntryWindow : Window
                 con.Close();
             }
         }
-        catch (Exception exception)
+        catch (Exception ex)
         {
-            Console.WriteLine("EXP1" + exception);
+            MessageBoxManager.GetMessageBoxStandard("Error !", ex.Message, ButtonEnum.Ok,
+                MsBox.Avalonia.Enums.Icon.Error).ShowAsync();
         }
         
         
@@ -71,10 +75,28 @@ public partial class QuickEntryWindow : Window
                 cmd.ExecuteNonQuery();
             }
         }
-        catch (Exception exception)
+        catch (Exception ex)
         {
-            Console.WriteLine(exception);
+            MessageBoxManager.GetMessageBoxStandard("Error !", ex.Message, ButtonEnum.Ok,
+                MsBox.Avalonia.Enums.Icon.Error).ShowAsync();
         }
+        
+        
+        // Done Message !
+        MessageBoxManager.GetMessageBoxStandard("Success !", "User and Asset Created Successfully. !", ButtonEnum.Ok,
+            MsBox.Avalonia.Enums.Icon.Success).ShowAsync();
+        
+        // Reset all txt boxes.
+        TxtFullName.Text = string.Empty;
+        TxtDepartment.Text = string.Empty;
+        TxtEmail.Text = string.Empty;
+        ComboComputerType.SelectedIndex = -1;
+        TxtComputerModel.Text = string.Empty;
+        TxtComputerName.Text = string.Empty;
+        TxtCpu.Text = string.Empty;
+        TxtRam.Text = string.Empty;
+        TxtSerial.Text = string.Empty;
+        TxtComments.Text = string.Empty;
     }
 
     private void BtnCancel_OnClick(object? sender, RoutedEventArgs e)

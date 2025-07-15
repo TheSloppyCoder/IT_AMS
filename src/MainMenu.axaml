@@ -5,7 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
         x:Class="IT_AMS.MainMenu"
         Title="IT Asset Management System" Width="1200" Height="650" Background="#F1F1F1"
-        Icon="../img/app-logo.png" WindowStartupLocation="CenterScreen" Loaded="Window_OnLoaded">
+        Icon="../img/asset.png" WindowStartupLocation="CenterScreen" Loaded="Window_OnLoaded">
         
         <!-- Main Grid -->
         <Grid ColumnDefinitions="20, *, *, 20" RowDefinitions="20, 80, 55, *, 20">
@@ -83,20 +83,21 @@
                 <StackPanel Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"
                             Orientation="Horizontal">
                         <Image Source="../img/search.png" Height="25" Margin="0,0,10,0"/>
-                        <TextBox FontSize="15" FontWeight="Bold"
+                        <TextBox Name="TxtSearch" FontSize="15" FontWeight="Bold" TextChanged="TxtSearch_OnTextChanged"
                                  Watermark="Search" Height="38" Width="150" VerticalContentAlignment="Center" 
                                  CornerRadius="10" HorizontalContentAlignment="Left"/>
                 </StackPanel>
                 
                 <!-- Data Table Title -->
                 <Label Name="LblTitle" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" 
-                       Content="Assets" Margin="0,20,0,0" FontSize="20" FontWeight="Bold"/>
+                       Content="" Margin="0,20,0,0" FontSize="20" FontWeight="Bold"/>
                 
                 
                <!-- Data Table -->
                 <DataGrid x:Name="DataGrid" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Background="LightGray" 
-                          BorderThickness="2" BorderBrush="Gray"
-                          GridLinesVisibility="All" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="True">
+                          BorderThickness="2" BorderBrush="Gray" IsReadOnly="True"
+                          GridLinesVisibility="All" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="True"
+                          DoubleTapped="DataGrid_OnDoubleTapped">
                         <DataGrid.Styles>
                                 <Style Selector="DataGridColumnHeader">
                                         <Setter Property="FontSize" Value="16"/>

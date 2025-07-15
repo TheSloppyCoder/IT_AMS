@@ -14,6 +14,7 @@
         <PackageReference Include="Avalonia.Desktop" Version="11.3.0"/>
         <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0"/>
         <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.0"/>
+        <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
 	<PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
         <PackageReference Include="Avalonia.Diagnostics" Version="11.3.0">
@@ -49,5 +50,7 @@
       <AvaloniaResource Include="img\storage.png" />
       <None Remove="img\search.png" />
       <AvaloniaResource Include="img\search.png" />
+      <None Remove="img\asset.png" />
+      <AvaloniaResource Include="img\asset.png" />
     </ItemGroup>
 </Project>
