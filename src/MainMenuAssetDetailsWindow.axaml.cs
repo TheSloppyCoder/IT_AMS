@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace IT_AMS;
 
-public partial class FullAssetWindow : Window
+public partial class MainMenuAssetDetailsWindow : Window
 {
-    public FullAssetWindow()
+    public MainMenuAssetDetailsWindow()
     {
         InitializeComponent();
     }

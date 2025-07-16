@@ -167,7 +167,7 @@ public partial class MainMenu : Window
     {
         if (DataGrid.SelectedItem is CombinedDataModel item)
         {
-            FullAssetWindow fullAssetWindow = new FullAssetWindow();
+            MainMenuAssetDetailsWindow fullAssetWindow = new MainMenuAssetDetailsWindow();
             fullAssetWindow.Show();
             // quickEntryWindow.TxtFullName.Text = item.EmpId.ToString();
         }
