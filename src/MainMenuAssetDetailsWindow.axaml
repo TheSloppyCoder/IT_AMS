@@ -15,7 +15,7 @@
                 <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold"
                        HorizontalAlignment="Center" VerticalAlignment="Center" Content="User and Asset Details"/>
                 
-                <Separator Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"/>
+                <Separator Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Height="2"/>
                 
                 <!-- Left Stack Panel -->
                 <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Margin="0,30">
@@ -28,7 +28,7 @@
                         <Label Grid.Column="0" Grid.Row="5" Content="Computer Model" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="6" Content="Computer Name" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="7" Content="Serial" VerticalAlignment="Center"/>
-                        <TextBox Grid.Column="1" Grid.Row="0" Height="30" Width="100" IsEnabled="False" HorizontalAlignment="Left" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtEmpId" Grid.Column="1" Grid.Row="0" Height="30" Width="100" IsEnabled="False" HorizontalAlignment="Left" Margin="50,0,0,0"/>
                         <TextBox Grid.Column="1" Grid.Row="1" Height="30" Width="200" Margin="50,0,0,0"/>
                         <TextBox Grid.Column="1" Grid.Row="2" Height="30" Width="200" Margin="50,0,0,0"/>
                         <TextBox Grid.Column="1" Grid.Row="3" Height="30" Width="200" Margin="50,0,0,0"/>

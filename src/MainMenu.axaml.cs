@@ -27,8 +27,8 @@ public partial class MainMenu : Window
     {
         try
         {
-            //string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
-            string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+            string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+            //string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
             string sql = "";
             switch (ComboHistory.SelectedIndex)
             {
@@ -94,8 +94,8 @@ public partial class MainMenu : Window
                 LblTitle.Content = "Assigned Assets"; 
                 try
                 {
-                    //string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
-                    string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+                    string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+                    //string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
                     string sql = "SELECT * FROM Employee INNER JOIN Asset ON Employee.AssetID = Asset.AssetID";
             
                     DataTable dt = new DataTable();
@@ -167,9 +167,11 @@ public partial class MainMenu : Window
     {
         if (DataGrid.SelectedItem is CombinedDataModel item)
         {
-            MainMenuAssetDetailsWindow fullAssetWindow = new MainMenuAssetDetailsWindow();
-            fullAssetWindow.Show();
-            // quickEntryWindow.TxtFullName.Text = item.EmpId.ToString();
+            MainMenuAssetDetailsWindow userAssetDetails = new MainMenuAssetDetailsWindow();
+            userAssetDetails.Show();
+            userAssetDetails.TxtEmpId.Text = item.EmpId.ToString();
+            
+            
         }
     }
 }
