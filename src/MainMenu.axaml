@@ -5,7 +5,7 @@
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
         x:Class="IT_AMS.MainMenu"
         Title="IT Asset Management System" Width="1200" Height="650" MinWidth="1200" MinHeight="650" Background="#F1F1F1"
-        Icon="../img/asset.png" WindowStartupLocation="CenterScreen" Loaded="Window_OnLoaded">
+        Icon="../img/asset.png" WindowStartupLocation="CenterScreen" Loaded="Window_OnLoaded" WindowState="Maximized">
         
         <!-- Main Grid -->
         <Grid ColumnDefinitions="20, *, *, 20" RowDefinitions="20, 80, 55, *, 20">
@@ -18,14 +18,14 @@
                         <Button Name="BtnQuickEntry" FontSize="15"  FontWeight="Bold" Background="LightGray" BorderBrush="Gray" 
                                 Margin="0,0,5,0" Click="BtnQuickEntry_OnClick">
                                 <StackPanel Orientation="Horizontal">
-                                        <Image Source="../img/quick1.png" Height="25"></Image>
-                                        <Label Content=" Quick Entry"></Label>
+                                        <Image Source="../img/quick1.png" Height="25"/>
+                                        <Label Content=" Quick Entry"/>
                                 </StackPanel>
                         </Button>
                         <Button Name="BtnStorage" FontSize="15"  FontWeight="Bold" Background="LightGray" BorderBrush="Gray">
                                 <StackPanel Orientation="Horizontal">
-                                        <Image Source="../img/storage.png" Height="25"></Image>
-                                        <Label Content=" Storage"></Label>
+                                        <Image Source="../img/storage.png" Height="25"/>
+                                        <Label Content=" Storage"/>
                                 </StackPanel>
                         </Button>
                         <ComboBox Name="ComboHistory" FontSize="15" Height="38" FontWeight="Bold" PlaceholderText="Asset History"
@@ -62,13 +62,13 @@
                                 <ComboBoxItem>
                                         <StackPanel Orientation="Horizontal">
                                                 <Image Source="../img/export.png" Height="25"/>
-                                                <Label Content=" Export -> Excel"></Label>
+                                                <Label Content=" Export -> Excel"/>
                                         </StackPanel>
                                 </ComboBoxItem>
                                 <ComboBoxItem>
                                         <StackPanel Orientation="Horizontal">
                                                 <Image Source="../img/settings.png" Height="25"/>
-                                                <Label Content=" Settings"></Label>
+                                                <Label Content=" Settings"/>
                                         </StackPanel>
                                 </ComboBoxItem>
                         </ComboBox>
