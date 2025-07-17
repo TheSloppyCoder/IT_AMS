@@ -52,5 +52,9 @@
       <AvaloniaResource Include="img\search.png" />
       <None Remove="img\asset.png" />
       <AvaloniaResource Include="img\asset.png" />
+      <None Remove="img\return.png" />
+      <AvaloniaResource Include="img\return.png" />
+      <None Remove="img\update.png" />
+      <AvaloniaResource Include="img\update.png" />
     </ItemGroup>
 </Project>

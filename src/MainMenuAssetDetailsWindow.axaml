@@ -5,11 +5,11 @@
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
         x:Class="IT_AMS.MainMenuAssetDetailsWindow"
         Title="User and Asset Details" Width="1200" Height="650" Background="#F1F1F1" WindowStartupLocation="CenterScreen"
-        Icon="../img/asset.png" CanResize="False">
+        Icon="../img/asset.png" CanResize="False" Loaded="Window_Loaded">
         
         
         <!-- Main Grid -->
-        <Grid ColumnDefinitions="20, *, 10, *, 20" RowDefinitions="20, 50, 2, *, 20">
+        <Grid ColumnDefinitions="20, *, 10, *, 20" RowDefinitions="20, 50, 2, *, 100, 20">
                 
                 <!-- Title -->
                 <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="30" FontWeight="Bold"
@@ -19,8 +19,7 @@
                 
                 <!-- Left Stack Panel -->
                 <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" Margin="0,30">
-                    <Grid ColumnDefinitions="*, *" RowDefinitions="50, 50, 50, 50, 50, 50, 50, 50, 50">
-                        <Label Grid.Column="0" Grid.Row="0" Content="Emp ID" VerticalAlignment="Center" />
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="50, 50, 50, 50, 50, 50, 50, 50">
                         <Label Grid.Column="0" Grid.Row="1" Content="Full Name" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="2" Content="Department" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="3" Content="Email" VerticalAlignment="Center"/>
@@ -28,14 +27,17 @@
                         <Label Grid.Column="0" Grid.Row="5" Content="Computer Model" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="6" Content="Computer Name" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="7" Content="Serial" VerticalAlignment="Center"/>
-                        <TextBox Name="TxtEmpId" Grid.Column="1" Grid.Row="0" Height="30" Width="100" IsEnabled="False" HorizontalAlignment="Left" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="1" Height="30" Width="200" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="2" Height="30" Width="200" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="3" Height="30" Width="200" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="4" Height="30" Width="200" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="5" Height="30" Width="200" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="6" Height="30" Width="200" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="7" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <Label Grid.Column="1" Grid.Row="0" Content="Emp ID:" Background="LightGray" Margin="50,0,0,0" VerticalAlignment="Center" CornerRadius="5"/>
+                        <Label Grid.Column="1" Grid.Row="0" Content="Asset ID:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0"/>
+                        <Label Name="LblEmpId" Grid.Column="1" Grid.Row="0" Content="" VerticalAlignment="Center" FontWeight="Bold" Margin="110,0,0,0"/>
+                        <Label Name="LblAssetId" Grid.Column="1" Grid.Row="0" Content="" VerticalAlignment="Center" FontWeight="Bold" HorizontalAlignment="Right" Margin="0,0,2,0"/>
+                        <TextBox Name="TxtFullName" Grid.Column="1" Grid.Row="1" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtDepartment" Grid.Column="1" Grid.Row="2" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtEmail" Grid.Column="1" Grid.Row="3" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtComputerType" Grid.Column="1" Grid.Row="4" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtComputerModel" Grid.Column="1" Grid.Row="5" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtComputerName" Grid.Column="1" Grid.Row="6" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtSerial" Grid.Column="1" Grid.Row="7" Height="30" Width="200" Margin="50,0,0,0"/>
                     </Grid>
                 </StackPanel>
                 
@@ -44,7 +46,7 @@
                 
                 <!-- Right Stack Panel -->
                 <StackPanel Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" Margin="0,30">
-                    <Grid ColumnDefinitions="*, *" RowDefinitions="50, 50, 50, 50, 50, 50, 50, 50, 50">
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="50, 50, 50, 50, 50, 50, 50, 50">
                         <Label Grid.Column="0" Grid.Row="0" Content="CPU" VerticalAlignment="Center" />
                         <Label Grid.Column="0" Grid.Row="1" Content="RAM" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="2" Content="Comments" VerticalAlignment="Center"/>
@@ -53,26 +55,48 @@
                         <Label Grid.Column="0" Grid.Row="5" Content="Mimecast" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="6" Content="M365 License" VerticalAlignment="Center"/>
                         <Label Grid.Column="0" Grid.Row="7" Content="Win Key" VerticalAlignment="Center"/>
-                        <TextBox Grid.Column="1" Grid.Row="0" Height="30" Width="50" HorizontalAlignment="Left" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="1" Height="30" Width="50" HorizontalAlignment="Left" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="2" Height="30" Width="200" Margin="50,0,0,0"/>
-                        <ComboBox Grid.Column="1" Grid.Row="3" Height="30" Width="80" Margin="50,0,0,0" VerticalAlignment="Center">
+                        <TextBox Name="TxtCpu" Grid.Column="1" Grid.Row="0" Height="30" Width="50" HorizontalAlignment="Left" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtRam" Grid.Column="1" Grid.Row="1" Height="30" Width="50" HorizontalAlignment="Left" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtComments" Grid.Column="1" Grid.Row="2" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <ComboBox Name="ComboSentinel" Grid.Column="1" Grid.Row="3" Height="30" Width="80" Margin="50,0,0,0" VerticalAlignment="Center">
                             <ComboBoxItem Content="NO"/>
                             <ComboBoxItem Content="YES"/>
                         </ComboBox>
-                        <ComboBox Grid.Column="1" Grid.Row="4" Height="30" Width="80" Margin="50,0,0,0" VerticalAlignment="Center">
+                        <ComboBox Name="ComboDns" Grid.Column="1" Grid.Row="4" Height="30" Width="80" Margin="50,0,0,0" VerticalAlignment="Center">
                             <ComboBoxItem Content="NO"/>
                             <ComboBoxItem Content="YES"/>
                         </ComboBox>
-                        <ComboBox Grid.Column="1" Grid.Row="5" Height="30" Width="80" Margin="50,0,0,0" VerticalAlignment="Center">
+                        <ComboBox Name="ComboMimecast" Grid.Column="1" Grid.Row="5" Height="30" Width="80" Margin="50,0,0,0" VerticalAlignment="Center">
                             <ComboBoxItem Content="NO"/>
                             <ComboBoxItem Content="YES"/>
                         </ComboBox>
-                        <TextBox Grid.Column="1" Grid.Row="6" Height="30" Width="200" Margin="50,0,0,0"/>
-                        <TextBox Grid.Column="1" Grid.Row="7" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtM365" Grid.Column="1" Grid.Row="6" Height="30" Width="200" Margin="50,0,0,0"/>
+                        <TextBox Name="TxtWinKey" Grid.Column="1" Grid.Row="7" Height="30" Width="200" Margin="50,0,0,0"/>
                     </Grid>
                 </StackPanel>
                 
+                <!-- Button Section -->
+                <StackPanel Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Orientation="Horizontal"
+                            HorizontalAlignment="Right" Margin="50,0">
+                    <Button Name="BtnUpdateDetails" Click="BtnUpdateDetails_OnClick">
+                       <StackPanel Orientation="Horizontal">
+                           <Image Source="../img/update.png" Height="20"/>
+                           <Label Content=" Update Details"/>
+                       </StackPanel>
+                    </Button>
+                    <Button Name="BtnReturnAsset" Margin="20,0" Click="BtnReturnAsset_OnClick">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../img/return.png" Height="20"/>
+                            <Label Content=" Return Asset"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="BtnClose" Click="BtnClose_OnClick">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../img/delete.png" Height="23"/>
+                            <Label Content="Close"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
                 
         </Grid>
         

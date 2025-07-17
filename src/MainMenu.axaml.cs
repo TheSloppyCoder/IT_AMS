@@ -27,8 +27,7 @@ public partial class MainMenu : Window
     {
         try
         {
-            string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
-            //string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+            SQLCon con  = new SQLCon(); // SQL Connection String
             string sql = "";
             switch (ComboHistory.SelectedIndex)
             {
@@ -41,7 +40,7 @@ public partial class MainMenu : Window
                            
             
             DataTable dt = new DataTable();
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(con.connectionString))
             {
                 SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
                 adapter.Fill(dt);
@@ -68,7 +67,8 @@ public partial class MainMenu : Window
                     DNSFilter = row["DNSFilter"].ToString(),
                     Mimecast = row["Mimecast"].ToString(),
                     M365License = row["M365License"].ToString(),
-                    WinKey = row["WinKey"].ToString()
+                    WinKey = row["WinKey"].ToString(),
+                    AssetID = Convert.ToInt32(row["AssetID"].ToString())
                 });
             }
             DataGrid.ItemsSource = assets;
@@ -94,12 +94,11 @@ public partial class MainMenu : Window
                 LblTitle.Content = "Assigned Assets"; 
                 try
                 {
-                    string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
-                    //string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+                    SQLCon con = new SQLCon(); // SQL Connection String
                     string sql = "SELECT * FROM Employee INNER JOIN Asset ON Employee.AssetID = Asset.AssetID";
             
                     DataTable dt = new DataTable();
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    using (SqlConnection connection = new SqlConnection(con.connectionString))
                     {
                         SqlDataAdapter adapter = new SqlDataAdapter(sql, connection);
                         adapter.Fill(dt);
@@ -126,7 +125,8 @@ public partial class MainMenu : Window
                             DNSFilter = row["DNSFilter"].ToString(),
                             Mimecast = row["Mimecast"].ToString(),
                             M365License = row["M365License"].ToString(),
-                            WinKey = row["WinKey"].ToString()
+                            WinKey = row["WinKey"].ToString(),
+                            AssetID = Convert.ToInt32(row["AssetID"].ToString())
                         });
                     }
                     DataGrid.ItemsSource = assets;
@@ -169,7 +169,8 @@ public partial class MainMenu : Window
         {
             MainMenuAssetDetailsWindow userAssetDetails = new MainMenuAssetDetailsWindow();
             userAssetDetails.Show();
-            userAssetDetails.TxtEmpId.Text = item.EmpId.ToString();
+            userAssetDetails.LblEmpId.Content = item.EmpId.ToString();
+            userAssetDetails.LblAssetId.Content = item.AssetID.ToString();
             
             
         }

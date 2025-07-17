@@ -22,8 +22,7 @@ public partial class QuickEntryWindow : Window
         //
         int LastId = 0; // AssetID
         
-        string connectionString = "Server=FANIE-DELLXPS13\\ABMS_SQL_SVR;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
-        //string connectionString = "Server=FANIE-F15\\ABMS_SQL;Database=TestDB;User Id=sa;Password=Tester@123;TrustServerCertificate=true;";
+        SQLCon conn = new SQLCon(); // SQL Connection String
         
         var selectedItem = ComboComputerType.SelectedItem as ComboBoxItem;
         string selectedText = selectedItem.Content.ToString();
@@ -34,7 +33,7 @@ public partial class QuickEntryWindow : Window
                         VALUES (@Value1, @Value2,  @Value3, @Value4, @Value5, @Value6, @Value7); 
                         SELECT CAST(SCOPE_IDENTITY() AS INT);";
         
-            using SqlConnection con = new  SqlConnection(connectionString);
+            using SqlConnection con = new  SqlConnection(conn.connectionString);
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
 
@@ -64,7 +63,7 @@ public partial class QuickEntryWindow : Window
         {
             string sql = @"INSERT INTO Employee (FullName, Department, Email, AssetID) 
                             VALUES (@Valuee1, @Valuee2, @Valuee3, @Valuee4);";
-            using SqlConnection con = new  SqlConnection(connectionString);
+            using SqlConnection con = new  SqlConnection(conn.connectionString);
             using (SqlCommand cmd = new SqlCommand(sql, con))
             {
                 cmd.Parameters.AddWithValue("@Valuee1", TxtFullName.Text);

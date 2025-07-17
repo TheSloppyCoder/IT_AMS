@@ -18,4 +18,5 @@ public class CombinedDataModel
     public string Mimecast {get; set;}
     public string M365License {get; set;}
     public string WinKey {get; set;}
+    public int AssetID {get; set;}
 }
