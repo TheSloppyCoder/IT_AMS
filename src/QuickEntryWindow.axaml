@@ -5,10 +5,10 @@
         mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="650"
         x:Class="IT_AMS.QuickEntryWindow"
         Title="Quick Entry" Width="1200" Height="650" Background="#F1F1F1" WindowStartupLocation="CenterScreen"
-        Icon="../img/quick1.png" CanResize="False">
+        Icon="../img/quick1.png" CanResize="False" >
         
         <!-- Main Grid -->
-        <Grid ColumnDefinitions="20, *, 2, *, 20" RowDefinitions="20, 50, 2, *, 100, 20">
+        <Grid ColumnDefinitions="20, *, 2, *, 20" RowDefinitions="20, 50, 2, *,200, 20">
                 <!-- Column Separator -->
                 <Border Grid.Column="2" Grid.Row="1" Grid.RowSpan="4" Width="2" Background="Gray" Margin="20,0"/>
                 
@@ -64,17 +64,17 @@
                 
                 
                 <!-- Button Section -->
-                <StackPanel Grid.Column="3" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Name="BtnCreateUserAndAsset" Margin="0,0,50,0" Click="BtnCreateUserAndAsset_OnClick">
+                <StackPanel Grid.Column="3" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,90,0">
+                    <Button Name="BtnCreateUserAndAsset" Margin="0,0,20,0" Click="BtnCreateUserAndAsset_OnClick">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../img/add.png" Height="30"/>
-                            <Label Content=" Create User and Asset" FontSize="20" FontWeight="Bold"/>
+                            <Image Source="../img/add.png" Height="25"/>
+                            <Label Content=" Create User and Asset" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Button>
                     <Button Name="BtnCancel" Click="BtnCancel_OnClick">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../img/delete.png" Height="30"/>
-                            <Label Content=" Close" FontSize="20" FontWeight="Bold"/>
+                            <Image Source="../img/delete.png" Height="20"/>
+                            <Label Content=" Close"/>
                         </StackPanel>
                     </Button>
                     

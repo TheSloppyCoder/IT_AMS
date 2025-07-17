@@ -92,16 +92,10 @@
                     </Button>
                     <Button Name="BtnClose" Click="BtnClose_OnClick">
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="../img/delete.png" Height="23"/>
+                            <Image Source="../img/delete.png" Height="20"/>
                             <Label Content="Close"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
-                
         </Grid>
-        
-        
-        
-        
-        
 </Window>
